@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   # GET: /users/new
   get "/signup" do
-    erb :"/users/new.erb"
+    erb :"/users/new"
   end
 
   # POST: /users
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   # GET: /users/5
   get "/users/:slug" do
     @user = User.find_by_slug(params[:slug])
-    erb :"/users/show.erb"
+    erb :"/users/show"
   end
 
   # GET: /users/5/edit
