@@ -37,9 +37,6 @@ header nav a:hover {
     font-weight: bold;
 }
 
-a:visited {
-  color: blue;
-}
 /* End header and nav  */
 .wrapper {
   background: #fff;
@@ -67,6 +64,10 @@ p {
 
 .content {
   width: 100%;
+}
+
+.content a:visited {
+  color: blue;
 }
 
 footer {

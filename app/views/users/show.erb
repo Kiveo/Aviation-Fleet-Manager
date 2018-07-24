@@ -1,1 +1,10 @@
-<h2>Fleet Manager <%= @current_user.username %></h2>
+<h2>Fleet Manager: <%= @user.username %></h2>
+
+<h3>Current Fleet:</h3>
+<% if @user.planes == [] %>
+  <p>#: Fleet is currently empty</p>
+<% else %>
+  <% @user.planes.each.with_index(1) do |plane, i| %>
+  <p>#<%= i %>: <%= plane.identifier %></p>
+  <% end %>
+<% end %>

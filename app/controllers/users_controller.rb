@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       erb :"/users/new"
     else
       redirect :"/planes"
-    end 
+    end
   end
 
   # POST: /users
@@ -19,9 +19,9 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:password] == ""
       redirect :"/signup"
     else
-      @user = User.create(params[:user])
+      @user = User.create(username: params[:username], password: params[:password])
       session[:user_id] = @user.id
-      redirect :"/users/show"
+      redirect :"/users/#{current_user.slug}"
     end
   end
 
