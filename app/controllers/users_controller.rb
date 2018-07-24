@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       erb :"/users/new"
     else
       redirect :"/planes"
+    end 
   end
 
   # POST: /users
@@ -44,4 +45,5 @@ class UsersController < ApplicationController
   delete "/users/:id/delete" do
     redirect "/users"
   end
+
 end
