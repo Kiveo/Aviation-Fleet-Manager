@@ -72,6 +72,11 @@ footer {
   position: fixed;
   bottom: 0;
   font-weight: bold;
+  
+/* Form Style */
+  input {
+    margin-bottom: 5em;
+  }
 }
 
 @media screen and (max-width: 600px) {
