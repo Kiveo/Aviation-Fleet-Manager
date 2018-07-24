@@ -7,7 +7,7 @@
       <p><a href="/signup">Sign Up</a></p>
       <p><a href="/login">Log In</a></p>
     <% else %>
-      <p>Hello, <>!</p>
+      <p>Hello, <%= @current_user.username %>!</p>
       <p>Use the top navigation to view or add to your fleet.</p>
     <% end %>
   </div>
