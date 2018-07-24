@@ -16,8 +16,9 @@ class UsersController < ApplicationController
   end
 
   # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show.html"
+  get "/users/:slug" do
+    @user = User.find_by_slug(params[:slug])
+    erb :"/users/show.erb"
   end
 
   # GET: /users/5/edit
