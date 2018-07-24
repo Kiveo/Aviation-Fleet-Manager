@@ -1,8 +1,13 @@
 class PlanesController < ApplicationController
 
   # GET: /planes
-  get "/planes" do
-    erb :"/planes/index.html"
+  get '/planes' do
+    if logged_in?
+      @planes = Plane.all
+      erb :'planes/planes'
+    else
+      redirect to '/login'
+    end
   end
 
   # GET: /planes/new

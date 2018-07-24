@@ -7,12 +7,21 @@ class UsersController < ApplicationController
 
   # GET: /users/new
   get "/signup" do
-    erb :"/users/new"
+    if !logged_in?
+      erb :"/users/new"
+    else
+      redirect :"/planes"
   end
 
   # POST: /users
   post "/users" do
-    redirect "/users"
+    if params[:username] == "" || params[:password] == ""
+      redirect :"/signup"
+    else
+      @user = User.create(:user)
+      session[:id] = @user.id
+      redirect :"/users/show"
+    end
   end
 
   # GET: /users/5
