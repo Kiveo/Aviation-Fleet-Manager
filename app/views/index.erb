@@ -2,9 +2,14 @@
   <h2>Welcome to Aviation Fleet Manager</h2>
 
   <div class="content">
-    <p>Welcome to the Sinatra Template! If you're seeing this page, then everything is working
-    as expected. To get started, delete this file (<code>app/views/welcome.erb)</code> and begin adding
-    your own actions to <code>application_controller.rb</code>. For more information, see the <a href="https://github.com/thebrianemory/corneal">README</a>.</p>
+    <% if !logged_in? %>
+      <p>Hello! To create or alter a fleet, please login or sign up!</p>
+      <p><a href="/signup">Sign Up</a></p>
+      <p><a href="/login">Log In</a></p>
+    <% else %>
+      <p>Hello, <>!</p>
+      <p>Use the top navigation to view or add to your fleet.</p>
+    <% end %>
   </div>
 
 </div>
