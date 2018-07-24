@@ -49,6 +49,11 @@ header nav a:hover {
   width: 85%;
 }
 
+h2 {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+}
+
 p {
   margin: 1em;
 }
@@ -72,11 +77,11 @@ footer {
   position: fixed;
   bottom: 0;
   font-weight: bold;
-  
+}
+
 /* Form Style */
-  input {
-    margin-bottom: 5em;
-  }
+input {
+  margin-bottom: 1em;
 }
 
 @media screen and (max-width: 600px) {
