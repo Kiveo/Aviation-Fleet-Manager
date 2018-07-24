@@ -8,10 +8,10 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :welcome
+    erb :index
   end
 
-  helper do
+  helpers do
 
     def current_user
       @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
