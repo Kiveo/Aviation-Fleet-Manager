@@ -49,7 +49,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect :"/users/#{current_user.slug}"
     else
-      redirect '/signup'
+      @error_message = "Incorrect Login Info"
+      erb :'/error'
     end
   end
 
