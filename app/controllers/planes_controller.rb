@@ -2,22 +2,27 @@ class PlanesController < ApplicationController
 
   # GET: /planes
   get '/planes' do
-    if logged_in?
-      @planes = Plane.all
-      erb :'planes/show'
-    else
-      redirect to '/login'
-    end
+    @planes = Plane.all
+    erb :'planes/show'
   end
 
   # GET: /planes/new
   get "/planes/new" do
-    erb :"/planes/new"
+    if logged_in?
+      erb :"/planes/new"
+    else
+      redirect :"/"
+    end
   end
 
   # POST: /planes
   post "/planes" do
-    redirect "/planes"
+    if params[:identifier] == "" || params[:model] == ""
+      redirect :"/planes/new"
+    else
+      @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
+      redirect "/planes"
+    end
   end
 
   # GET: /planes/5
