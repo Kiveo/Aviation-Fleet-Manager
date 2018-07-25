@@ -6,7 +6,7 @@ class Plane < ActiveRecord::Base
   validates :serial_number, uniqueness: true
 
   def slug
-    self.identifier.downcase.gsub(" ", "-")
+    identifier.downcase.gsub(" ", "-")
   end
 
   def self.find_by_slug(slug)

@@ -1,3 +1,5 @@
+require 'pry'
+
 class PlanesController < ApplicationController
 
   # GET: /planes
@@ -22,19 +24,20 @@ class PlanesController < ApplicationController
     else
       @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
       current_user.planes << @plane
+      @plane.save
       redirect :"/planes/#{@plane.slug}"
     end
   end
 
   # GET: /planes/N12345
   get "/planes/:slug" do
-     if logged_in?
-       @plane = Plane.find_by_slug(params[:slug])
+    @plane = Plane.find_by_slug(params[:slug])
+    if logged_in?
        erb :"/planes/show"
      else
        redirect :"/login"
      end
-   end
+    end
 
   # GET: /planes/N12345/edit
   get "/planes/:slug/edit" do
