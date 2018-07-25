@@ -12,7 +12,7 @@ class PlanesController < ApplicationController
 
   # GET: /planes/new
   get "/planes/new" do
-    erb :"/planes/new.html"
+    erb :"/planes/new"
   end
 
   # POST: /planes
