@@ -56,9 +56,17 @@ class PlanesController < ApplicationController
     redirect "/planes/#{@plane.identifier}"
   end
 
-  # DELETE: /planes/5/delete
-  delete "/planes/:id/delete" do
-    redirect "/planes"
+  # DELETE: /planes/N12345/delete
+  delete "/planes/:identifier/delete" do
+    if logged_in?
+      @plane = Plane.find_by(identifier: params[:identifier])
+      if @plane && @plane.user == current_user
+        @plane.delete
+      end
+      redirect "/planes"
+    else
+      redirect :"/"
+    end
   end
 
 end
