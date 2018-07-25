@@ -8,4 +8,6 @@ After bundle install, run 'rake db:migrate'
 Onced bundled and migrated, run 'shotgun' to preview a server and interact with the application.
 Control/Command + C to close the shotgun server.
 
-Aviation Fleet Manager was created by Maverick Tesini. License file is within the file tree.
+MIT License
+
+Copyright (c) 2018 Maverick Tesini
