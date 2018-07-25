@@ -36,9 +36,14 @@ class PlanesController < ApplicationController
      end
    end
 
-  # GET: /planes/5/edit
-  get "/planes/:id/edit" do
-    erb :"/planes/edit.html"
+  # GET: /planes/N12345/edit
+  get "/planes/:identifier/edit" do
+    @plane = Plane.find_by(identifier: params[:identifier])
+    if logged_in?
+      erb :"/planes/edit"
+    else
+      redirect :"/"
+    end
   end
 
   # PATCH: /planes/5
