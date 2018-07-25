@@ -22,14 +22,14 @@ class PlanesController < ApplicationController
     else
       @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
       current_user.planes << @plane
-      redirect :"/planes/#{@plane.identifier}"
+      redirect :"/planes/#{@plane.slug}"
     end
   end
 
   # GET: /planes/N12345
-  get "/planes/:identifier" do
+  get "/planes/:slug" do
      if logged_in?
-       @plane = Plane.find_by(identifier: params[:identifier])
+       @plane = Plane.find_by_slug(params[:slug])
        erb :"/planes/show"
      else
        redirect :"/login"
@@ -37,9 +37,9 @@ class PlanesController < ApplicationController
    end
 
   # GET: /planes/N12345/edit
-  get "/planes/:identifier/edit" do
+  get "/planes/:slug/edit" do
     if logged_in?
-      @plane = Plane.find_by(identifier: params[:identifier])
+      @plane = Plane.find_by_slug(params[:slug])
       if @plane && current_user.planes.detect{|plane| plane == @plane }
         erb :"/planes/edit"
       else
@@ -50,20 +50,20 @@ class PlanesController < ApplicationController
     end
   end
 
-  patch "/planes/:identifier" do
-    @plane = Plane.find_by(identifier: params[:identifier])
+  patch "/planes/:slug" do
+    @plane = Plane.find_by_slug(params[:slug])
     if params[:identifier] == "" || params[:model] == "" || params[:serial_number] == "" || params[:base] == ""
-      redirect :"planes/#{@plane.identifier}"
+      redirect :"planes/#{@plane.slug}"
     else
       @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
-      redirect "/planes/#{@plane.identifier}"
+      redirect "/planes/#{@plane.slug}"
     end
   end
 
   # DELETE: /planes/N12345/delete
-  delete "/planes/:identifier" do
+  delete "/planes/:slug" do
     if logged_in?
-      @plane = Plane.find_by(identifier: params[:identifier])
+      @plane = Plane.find_by_slug(params[:slug])
       if @plane && @plane.user == current_user
         @plane.delete
       end

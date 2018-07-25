@@ -4,4 +4,13 @@ class Plane < ActiveRecord::Base
   validates :identifier, presence: true
   validates :identifier, uniqueness: true
   validates :serial_number, uniqueness: true
+
+  def slug
+    self.identifier.downcase.gsub(" ", "-")
+  end
+
+  def self.find_by_slug(slug)
+    Plane.all.detect {|plane| plane.slug == slug}
+  end
+
 end

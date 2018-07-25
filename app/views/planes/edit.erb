@@ -6,7 +6,7 @@
 
 <h3>New Data</h3>
 <br>
-<form method="post" action="/planes/<%= @plane.identifier %>">
+<form method="post" action="/planes/<%= @plane.slug %>">
   <input type="hidden" id="hidden" name="_method" value="patch">
 
   <label for="identifier">Identifier('Tail-Number'): </label><br>

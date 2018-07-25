@@ -15,8 +15,8 @@
     <p>#: Fleet is currently empty</p>
   <% else %>
     <% @user.planes.each.with_index(1) do |plane, i| %>
-    <p>#<%= i %>: <%= plane.identifier %> <a href="/planes/<%= plane.identifier %>/edit">Edit</a></p>
-    <form id="delete_form" method="post" action="/planes/<%=plane.identifier%>">
+    <p>#<%= i %>: <%= plane.identifier %> <a href="/planes/<%= plane.slug %>/edit">Edit</a></p>
+    <form id="delete_form" method="post" action="/planes/<%=plane.slug%>">
       <input type="hidden" id="hidden" name="_method" value="delete">
       <input type="submit" id="delete_text" value="Delete <%=plane.identifier%>">
     </form>
