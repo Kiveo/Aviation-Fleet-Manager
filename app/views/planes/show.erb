@@ -1,8 +1,0 @@
-<h2>Fleet Display</h2>
-<% @planes.each.with_index(1) do |plane, i| %>
-  <h3>#<%=i%>: <%= plane.identifier %></h3>
-  <p>Model: <%= plane.model %></p>
-  <p>Serial Number: <%= plane.serial_number %></p>
-  <p>Base of Operation: <%= plane.base %></p>
-  <p>Manager: <%= plane.user %></p>
-<% end %>

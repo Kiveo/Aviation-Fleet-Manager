@@ -3,7 +3,7 @@ class PlanesController < ApplicationController
   # GET: /planes
   get '/planes' do
     @planes = Plane.all
-    erb :'planes/show'
+    erb :'planes/index'
   end
 
   # GET: /planes/new
@@ -26,12 +26,16 @@ class PlanesController < ApplicationController
     end
   end
 
-  # GET: /planes/5
+  # GET: /planes/N12345
   get "/planes/:id" do
-    @plane = Plane.find_by(identifier: params[:identifier])
-    erb :"/planes/show.html"
-  end
-
+     if logged_in?
+       @plane = Plane.find_by(identifier: params[:identifier])
+       erb :"/planes/show.html"
+     else
+       redirect :"/login"
+     end
+   end
+   
   # GET: /planes/5/edit
   get "/planes/:id/edit" do
     erb :"/planes/edit.html"
