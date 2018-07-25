@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   #LOG IN request page
   get '/login' do
-    erb :login
+    erb :"/users/login"
   end
 
   post '/login' do
