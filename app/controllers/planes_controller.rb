@@ -21,12 +21,14 @@ class PlanesController < ApplicationController
       redirect :"/planes/new"
     else
       @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
-      redirect "/planes"
+      current_user.planes << @plane
+      redirect :"/planes/#{@plane.identifier}"
     end
   end
 
   # GET: /planes/5
   get "/planes/:id" do
+    @plane = Plane.find_by(identifier: params[:identifier])
     erb :"/planes/show.html"
   end
 
