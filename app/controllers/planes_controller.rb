@@ -50,8 +50,8 @@ class PlanesController < ApplicationController
     end
   end
 
-  patch "/planes/:slug" do
-    @plane = Plane.find_by(slug: params[:slug])
+  patch "/planes/:identifier" do
+    @plane = Plane.find_by(identifier: params[:identifier])
     @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
     redirect "/planes/#{@plane.identifier}"
   end

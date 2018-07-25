@@ -8,5 +8,5 @@ class Plane < ActiveRecord::Base
   def self.find_by_slug(slug)
     Plane.all.detect{|plane| plane.slug == slug }
   end
-  
+
 end
