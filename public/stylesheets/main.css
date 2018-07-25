@@ -84,6 +84,13 @@ footer {
   font-weight: bold;
 }
 
+footer a {
+  float: left;
+  margin-left: 10px;
+  text-decoration: none;
+  color: teal;
+}
+
 /* Form Style */
 input {
   margin-bottom: 1em;
