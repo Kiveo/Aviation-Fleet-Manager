@@ -15,7 +15,8 @@ html, body {
 /* --- Standard Page Styles --- */
 body {
   background-image: linear-gradient(to bottom, #006fff, #00a1ff, #00c7ff, #00e5dd, #00fda5);
-  background-color: skyblue;
+  background-repeat: no-repeat;
+  background-color: #00fda5;
   font-family: 'Lato', sans-serif;
   line-height: 1.25em;
 }
@@ -43,7 +44,7 @@ header nav a:hover {
   -moz-box-shadow: 0 0 30px rgba(0,0,0,.3);
   -webkit-box-shadow: 0 0 30px rgba(0,0,0,.3);
   box-shadow: 0 0 30px rgba(0,0,0,.3);
-  margin: auto;
+  margin: 0 auto 2%;
   max-width: 960px;
   padding: 2%;
   width: 85%;
@@ -100,6 +101,7 @@ input {
     -webkit-box-shadow: none;
     box-shadow: none;
     width: auto;
+    margin-bottom: 5%;
   }
   header nav a {
     display: block;
