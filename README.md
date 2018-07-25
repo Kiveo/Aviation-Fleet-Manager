@@ -11,3 +11,11 @@ Control/Command + C to close the shotgun server.
 MIT License
 
 Copyright (c) 2018 Maverick Tesini
+
+How Can I Contribute?
+
+Reporting Bugs or Code Suggestions
+
+Please use github issues functionality and pull requests after forking the repo.
+If there are any concerns or topics that don't easily fall into github functionality, feel free to email me.
+email: mavericktesini@gmail.com  
