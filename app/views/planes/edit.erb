@@ -1,0 +1,22 @@
+<h2>Edit Aircraft</h2>
+<h3>Current Data for: <%= @plane.identifier %></h3>
+<p>Model: <%= @plane.model %></p>
+<p>Serial Number: <%= @plane.serial_number %></p>
+<p>Base of Operation: <%= @plane.base %></p>
+
+<h3>New Data</h3>
+<br>
+<form method="post" action="/planes">
+  <input type="hidden" id="hidden" name="_method" value="patch">
+
+  <label for="identifier">Identifier('Tail-Number'): </label><br>
+  <input type="text" name="identifier"><br>
+  <label for="model">Model: </label><br>
+  <input type="text" name="model"><br>
+  <label for="serial_number">Serial Number: </label><br>
+  <input type="number" name="serial_number"><br>
+  <label for="base">Base of Operation: </label><br>
+  <input type="text" name="base"><br>
+
+  <input type="submit" name="submit" value="Edit Aircraft">
+</form>

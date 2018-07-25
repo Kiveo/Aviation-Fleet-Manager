@@ -40,7 +40,7 @@ class PlanesController < ApplicationController
   get "/planes/:identifier/edit" do
     if logged_in?
       @plane = Plane.find_by(identifier: params[:identifier])
-      if @plane && current_user.planes.detect{|plane| plane }
+      if @plane && current_user.planes.detect{|plane| @plane }
         erb :"/planes/edit"
       else
         redirect :"/"
