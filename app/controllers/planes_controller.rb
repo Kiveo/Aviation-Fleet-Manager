@@ -27,15 +27,15 @@ class PlanesController < ApplicationController
   end
 
   # GET: /planes/N12345
-  get "/planes/:id" do
+  get "/planes/:identifier" do
      if logged_in?
        @plane = Plane.find_by(identifier: params[:identifier])
-       erb :"/planes/show.html"
+       erb :"/planes/show"
      else
        redirect :"/login"
      end
    end
-   
+
   # GET: /planes/5/edit
   get "/planes/:id/edit" do
     erb :"/planes/edit.html"
@@ -50,4 +50,5 @@ class PlanesController < ApplicationController
   delete "/planes/:id/delete" do
     redirect "/planes"
   end
+
 end

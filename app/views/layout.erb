@@ -11,10 +11,10 @@
     <header>
       <nav>
         <a href="/">Aviation Fleet Manager</a>
-        <a href="/planes">Fleet</a>
+        <a href="/planes">Entire Fleet</a>
         <% if logged_in? %>
         <a href="/planes/new">Add Aircraft</a>
-        <a href="/users/<%= @current_user.slug %>">Account</a>
+        <a href="/users/<%= @current_user.slug %>">Your Fleet</a>
         <a id="logout" href="/logout">Sign Out</a>
         <% end %>
       </nav>
