@@ -95,7 +95,10 @@ footer a {
 input {
   margin-bottom: 1em;
 }
-
+/* delete link text */
+#delete_text {
+  font-size: 0.8em;
+}
 /* Sample div  */
 .sample {
   background-color: rgba(100, 200, 200, 0.4);

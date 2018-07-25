@@ -15,7 +15,9 @@
     <p>#: Fleet is currently empty</p>
   <% else %>
     <% @user.planes.each.with_index(1) do |plane, i| %>
-    <p>#<%= i %>: <%= plane.identifier %> <a href="/planes/<%= plane.identifier %>/edit">Edit</a></p>
+    <p>#<%= i %>: <a href="/planes/<%= plane.identifier %>/edit">Edit <%= plane.identifier %></a>
+    or <span id="delete_text"><a href="/planes/<%= plane.identifier %>/delete">Delete</a></span>
+    </p>
     <p>Model: <%= plane.model %></p>
     <p>Serial Number: <%= plane.serial_number %></p>
     <p>Base: <%= plane.base %></p>
