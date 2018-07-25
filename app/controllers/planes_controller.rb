@@ -4,7 +4,7 @@ class PlanesController < ApplicationController
   get '/planes' do
     if logged_in?
       @planes = Plane.all
-      erb :'planes/planes'
+      erb :'planes/show'
     else
       redirect to '/login'
     end
