@@ -31,7 +31,7 @@ class UsersController < ApplicationController
       erb :"/users/show"
     else
       redirect :"/login"
-    end 
+    end
   end
 
   #LOG IN request page
