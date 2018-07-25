@@ -1,4 +1,6 @@
 <h2>All Fleets Display</h2>
+<p>This list includes ALL fleets, across all users.</p>
+<p>To view or edit your fleet, log in and select "Your Fleet" link in top navigation.</p>
 <% @planes.each.with_index(1) do |plane, i| %>
   <h3>#<%=i%>: <%= plane.identifier %></h3>
   <p>Model: <%= plane.model %></p>
