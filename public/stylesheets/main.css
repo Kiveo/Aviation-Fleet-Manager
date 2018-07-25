@@ -96,8 +96,8 @@ input {
   margin-bottom: 1em;
 }
 /* delete link text */
-#delete_text {
-  font-size: 0.8em;
+#delete_form {
+  float: right;
 }
 /* Sample div  */
 .sample {

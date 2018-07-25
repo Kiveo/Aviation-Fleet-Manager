@@ -15,15 +15,15 @@
     <p>#: Fleet is currently empty</p>
   <% else %>
     <% @user.planes.each.with_index(1) do |plane, i| %>
+    <p>#<%= i %>: <%= plane.identifier %> <a href="/planes/<%= plane.identifier %>/edit">Edit</a></p>
     <form id="delete_form" method="post" action="/planes/<%=plane.identifier%>">
       <input type="hidden" id="hidden" name="_method" value="delete">
       <input type="submit" id="delete_text" value="Delete <%=plane.identifier%>">
     </form>
-    <p>#<%= i %>: <a href="/planes/<%= plane.identifier %>/edit">Edit <%= plane.identifier %></a></p>
     <p>Model: <%= plane.model %></p>
     <p>Serial Number: <%= plane.serial_number %></p>
     <p>Base: <%= plane.base %></p>
-
+    <br>
     <% end %>
   <% end %>
 <% end %>
