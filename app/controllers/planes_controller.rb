@@ -63,9 +63,9 @@ class PlanesController < ApplicationController
       if @plane && @plane.user == current_user
         @plane.delete
       end
-      redirect :"/planes"
-    else
       redirect :"/"
+    else
+      redirect :"/login"
     end
   end
 
