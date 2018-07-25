@@ -88,6 +88,12 @@ input {
   margin-bottom: 1em;
 }
 
+/* Sample div  */
+.sample {
+  background-color: rgba(100, 200, 200, 0.4);
+  padding: 10px;
+}
+
 @media screen and (max-width: 600px) {
   .wrapper {
     -moz-box-shadow: none;
