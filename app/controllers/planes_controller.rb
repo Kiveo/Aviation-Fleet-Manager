@@ -52,8 +52,12 @@ class PlanesController < ApplicationController
 
   patch "/planes/:identifier" do
     @plane = Plane.find_by(identifier: params[:identifier])
-    @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
-    redirect "/planes/#{@plane.identifier}"
+    if params[:identifier] == "" || params[:model] == "" || params[:serial_number] == "" || params[:base] == ""
+      redirect :"planes/#{@plane.identifier}"
+    else
+      @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
+      redirect "/planes/#{@plane.identifier}"
+    end
   end
 
   # DELETE: /planes/N12345/delete
