@@ -1,10 +1,5 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
-
   # GET: /users/new
   get "/signup" do
     if !logged_in?
@@ -35,6 +30,16 @@ class UsersController < ApplicationController
     erb :"/users/show"
   end
 
+  #LOG IN request page
+  get '/login' do
+    erb :login
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params[:username], password: params[:password])
+    session[:id] = @user.id
+    redirect :"/users/#{current_user.slug}"
+  end
   # LOG OUT: /users/5/delete
   get "/logout" do
     session.clear
