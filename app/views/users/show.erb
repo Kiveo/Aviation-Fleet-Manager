@@ -1,10 +1,24 @@
 <h2>Fleet Manager: <%= @user.username %></h2>
 
 <h3>Current Fleet:</h3>
-<% if @user.planes == [] %>
-  <p>#: Fleet is currently empty</p>
+
+<% if current_user.id != session[:user_id] %>
+  <% if @user.planes == [] %>
+    <p>#: Fleet is currently empty</p>
+  <% else %>
+    <% @user.planes.each.with_index(1) do |plane, i| %>
+    <p>#<%= i %>: <%= plane.identifier %></p>
+    <% end %>
+  <% end %>
 <% else %>
-  <% @user.planes.each.with_index(1) do |plane, i| %>
-  <p>#<%= i %>: <%= plane.identifier %></p>
+  <% if @user.planes == [] %>
+    <p>#: Fleet is currently empty</p>
+  <% else %>
+    <% @user.planes.each.with_index(1) do |plane, i| %>
+    <p>#<%= i %>: <%= plane.identifier %> <a href="/planes/<%= plane.identifier %>/edit">Edit</a></p>
+    <p>Model: <%= plane.model %></p>
+    <p>Serial Number: <%= plane.serial_number %></p>
+    <p>Base: <%= plane.base %></p>
+    <% end %>
   <% end %>
 <% end %>

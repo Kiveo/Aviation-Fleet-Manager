@@ -26,8 +26,12 @@ class UsersController < ApplicationController
 
   # GET: /users/5
   get "/users/:slug" do
-    @user = User.find_by_slug(params[:slug])
-    erb :"/users/show"
+    if logged_in?
+      @user = User.find_by_slug(params[:slug])
+      erb :"/users/show"
+    else
+      redirect :"/login"
+    end 
   end
 
   #LOG IN request page
