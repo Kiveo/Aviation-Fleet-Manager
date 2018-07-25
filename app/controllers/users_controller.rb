@@ -32,14 +32,23 @@ class UsersController < ApplicationController
 
   #LOG IN request page
   get '/login' do
-    erb :"/users/login"
+    if !logged_in?
+      erb :'users/login'
+    else
+      redirect to '/'
+    end
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username], password: params[:password])
-    session[:id] = @user.id
-    redirect :"/users/#{current_user.slug}"
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect :"/users/#{current_user.slug}"
+    else
+      redirect '/signup'
+    end
   end
+
   # LOG OUT: /users/5/delete
   get "/logout" do
     session.clear
