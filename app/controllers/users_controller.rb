@@ -12,7 +12,7 @@ class UsersController < ApplicationController
   # POST: /users
   post "/users" do
     @prior_user = User.find_by(username: params[:username])
-    if params[:username] == "" || params[:password] == ""
+    if params[:username] == " " || params[:password] == " "
       redirect :"/signup"
     elsif @prior_user && params[:username] == @prior_user.username
       @error_message = "Username unavailable"
