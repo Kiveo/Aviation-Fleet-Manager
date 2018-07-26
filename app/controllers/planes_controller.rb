@@ -56,7 +56,7 @@ class PlanesController < ApplicationController
   patch "/planes/:slug" do
     @plane = Plane.find_by_slug(params[:slug])
     if params[:identifier] == "" || params[:model] == "" || params[:serial_number] == "" || params[:base] == ""
-      redirect :"planes/#{@plane.slug}"
+      erb :"planes/edit"
     else
       @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
       redirect "/planes/#{@plane.slug}"

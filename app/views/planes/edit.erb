@@ -14,7 +14,7 @@
   <label for="model">Model: </label><br>
   <input type="text" name="model" value="<%= @plane.model %>" required><br>
   <label for="serial_number">Serial Number: </label><br>
-  <input type="number" name="serial_number" value="<%= @plane.serial_number %>" required><br>
+  <input type="number" name="serial_number" value="<%= @plane.serial_number %>" min="1" required><br>
   <label for="base">Base of Operation: </label><br>
   <input type="text" name="base" value="<%= @plane.base %>" required><br>
 
