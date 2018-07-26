@@ -106,9 +106,11 @@ input {
 }
 /* Flash message */
 #flash {
+  border: 1px solid red;
+  padding: 3px;
   font-weight: bold;
   float: right;
-  color: #f0f;
+  color: rgba(255,0,0,.5);
 }
 
 @media screen and (max-width: 600px) {
