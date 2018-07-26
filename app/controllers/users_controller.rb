@@ -12,16 +12,21 @@ class UsersController < ApplicationController
   # POST: /users
   post "/users" do
     @prior_user = User.find_by(username: params[:username])
-    if params[:username] == " " || params[:password] == " "
-      redirect :"/signup"
-    elsif @prior_user && params[:username] == @prior_user.username
-      @error_message = "Username unavailable"
-      erb :error
-    else
-      @user = User.create(username: params[:username], password: params[:password])
-      session[:user_id] = @user.id
-      redirect :"/users/#{current_user.slug}"
-    end
+    if NoMethodError
+      flash[:message] = "Fields must not be blank"
+      erb :"users/new"
+    else 
+      if params[:username] == " " || params[:password] == " "
+        redirect :"/signup"
+      elsif @prior_user && params[:username] == @prior_user.username
+        @error_message = "Username unavailable"
+        erb :error
+      else
+        @user = User.create(username: params[:username], password: params[:password])
+        session[:user_id] = @user.id
+        redirect :"/users/#{current_user.slug}"
+      end
+    end 
   end
 
   # GET: /users/user-name
