@@ -1,6 +1,4 @@
-Aviation Fleet Manager is a CRM that allows a user to sign up as a fleet manager. The fleet manager can then add aircraft to his fleet.
-Each manager can view their own fleets or view the entire fleet database.
-Aircraft created by a user/manager are detailed using an FAA identifier, a model, serial number, and a base of operations.
+Aviation Fleet Manager is a wep app CRM. Users can sign up as a fleet manager. A fleet manager can add, edit, or remove aircraft from his fleet. Managers can view their specific fleets and all users can view the total fleet. Aircraft are catalogued using an FAA identifier, a model, serial number, and a base of operations.
 
 1. To begin, clone the repo from: https://github.com/Kiveo/Aviation-Fleet-Manager .
 2. In the directory, use a terminal to run bundle install.
