@@ -104,6 +104,12 @@ input {
   background-color: rgba(100, 200, 200, 0.4);
   padding: 10px;
 }
+/* Flash message */
+#flash {
+  font-weight: bold;
+  float: right;
+  color: #f0f;
+}
 
 @media screen and (max-width: 600px) {
   .wrapper {

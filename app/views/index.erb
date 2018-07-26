@@ -1,9 +1,9 @@
-<% if flash.has?(:message) %>
-  <%= flash[:message] %>
-<% end %>
-
 <div class="col-sm-8">
   <h2>Welcome to Aviation Fleet Manager</h2>
+
+  <% if flash.has?(:message) %>
+  <span id="flash"><%= flash[:message] %></span>
+  <% end %>
 
   <div class="content">
     <% if !logged_in? %>
