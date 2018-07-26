@@ -1,6 +1,7 @@
-require 'pry'
+require 'rack-flash'
 
 class PlanesController < ApplicationController
+  use Rack::Flash
 
   # GET: /planes
   get '/planes' do
@@ -69,6 +70,7 @@ class PlanesController < ApplicationController
       @plane = Plane.find_by_slug(params[:slug])
       if @plane && @plane.user == current_user
         @plane.delete
+        flash[:message] = "Successfully deleted song."
       end
       redirect :"/"
     else
