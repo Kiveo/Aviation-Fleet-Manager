@@ -1,13 +1,13 @@
 <h2>Add Aircraft to Fleet</h2>
 <form method="post" action="/planes">
   <label for="identifier">Identifier('Tail-Number'): </label><br>
-  <input type="text" name="identifier"><br>
+  <input type="text" name="identifier" required><br>
   <label for="model">Model: </label><br>
-  <input type="text" name="model"><br>
+  <input type="text" name="model" required><br>
   <label for="serial_number">Serial Number: </label><br>
-  <input type="number" name="serial_number"><br>
+  <input type="number" name="serial_number" min="1" required><br>
   <label for="base">Base of Operation: </label><br>
-  <input type="text" name="base"><br>
+  <input type="text" name="base" required><br>
 
   <input type="submit" id="create" value="Create Aircraft">
 </form>

@@ -20,7 +20,7 @@ class PlanesController < ApplicationController
   # POST: /planes
   post "/planes" do
     if params[:identifier] == "" || params[:model] == ""
-      redirect :"/planes/new"
+      erb :"/planes/new"
     else
       @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
       current_user.planes << @plane
