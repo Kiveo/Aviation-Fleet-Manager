@@ -13,22 +13,18 @@ class UsersController < ApplicationController
   post "/users" do
     @prior_user = User.find_by(username: params[:username])
     @user = User.new(username: params[:username], password: params[:password])
-    if NoMethodError
-      flash[:message] = "Please only use alpha-numerics, with no spaces."
-      erb :"users/new"
+    if params[:username] == " " || params[:password] == " "
+      redirect :"/signup"
+    elsif @prior_user && params[:username] == @prior_user.username
+      @error_message = "Username unavailable"
+      erb :error
     else
-      if params[:username] == " " || params[:password] == " "
-        redirect :"/signup"
-      elsif @prior_user && params[:username] == @prior_user.username
-        @error_message = "Username unavailable"
-        erb :error
-      else
-        @user.save
-        session[:user_id] = @user.id
-        redirect :"/users/#{current_user.slug}"
-      end
+      @user.save
+      session[:user_id] = @user.id
+      redirect :"/users/#{current_user.slug}"
     end
   end
+
 
   # GET: /users/user-name
   get "/users/:slug" do
