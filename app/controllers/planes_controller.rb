@@ -56,9 +56,8 @@ class PlanesController < ApplicationController
 
   patch "/planes/:slug" do
     @plane = Plane.find_by_slug(params[:slug])
-    if NoMethodError
-    # if params[:identifier] == "" || params[:model] == "" || params[:serial_number] == "" || params[:base] == ""
-      flash[:message] = "Fields must not be blank, contain spaces, or special characters"
+    if params[:identifier] == " " || params[:model] == " " || params[:serial_number] == " " || params[:base] == " "
+      flash[:message] = "Fields must not be blank"
       erb :"planes/edit"
     else
       @plane.update(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
