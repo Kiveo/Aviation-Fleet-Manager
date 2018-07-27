@@ -1,4 +1,9 @@
 <h2>Add Aircraft to Fleet</h2>
+
+<% if flash.has?(:message) %>
+<span id="flash"><%= flash[:message] %></span>
+<% end %>
+
 <form method="post" action="/planes">
   <label for="identifier">Identifier('Tail-Number'): </label><br>
   <input type="text" name="identifier" required><br>

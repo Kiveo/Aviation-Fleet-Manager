@@ -4,6 +4,10 @@
 <p>Serial Number: <%= @plane.serial_number %></p>
 <p>Base of Operation: <%= @plane.base %></p>
 
+<% if flash.has?(:message) %>
+<span id="flash"><%= flash[:message] %></span>
+<% end %>
+
 <h3>New Data</h3>
 <br>
 <form method="post" action="/planes/<%= @plane.slug %>">
