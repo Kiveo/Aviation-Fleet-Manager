@@ -20,8 +20,7 @@ class PlanesController < ApplicationController
 
   # POST: /planes
   post "/planes" do
-    if NoMethodError
-      flash[:message] = "Fields must not be blank, contain spaces, or special characters"
+    if params[:identifier] == " " || params[:model] == " "
       erb :"/planes/new"
     else
       @plane = Plane.create(identifier: params[:identifier], model: params[:model], serial_number: params[:serial_number], base: params[:base])
