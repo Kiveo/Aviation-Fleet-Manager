@@ -33,10 +33,15 @@ class PlanesController < ApplicationController
   # GET: /planes/N12345
   get "/planes/:slug" do
     @plane = Plane.find_by_slug(params[:slug])
-    if logged_in?
-       erb :"/planes/show"
-     else
-       redirect :"/login"
+    if @plane.nil?
+      flash[:message] = "Plane does not exist, yet"
+      redirect :'/planes'
+    else
+      if logged_in?
+         erb :"/planes/show"
+       else
+         redirect :"/login"
+       end
      end
     end
 
